@@ -319,6 +319,8 @@ body,
   text-transform: uppercase;
   color: var(--gold);
   margin-bottom: 28px;
+  text-align: center;
+  width: 100%;
 }
 
 /* Form wrapper */
@@ -1322,6 +1324,8 @@ body,
   letter-spacing: 0.28em;
   text-transform: uppercase;
   color: var(--gold);
+  text-align: center;
+  width: 100%;
 }
 
 /* Main heading */

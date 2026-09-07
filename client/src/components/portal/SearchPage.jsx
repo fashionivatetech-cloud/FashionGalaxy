@@ -60,7 +60,7 @@ export default function SearchPage({ onResults }) {
                 type="text"
                 inputMode="text"
                 className="story-input"
-                placeholder="any field"
+                placeholder="profession/category"
                 value={form.department}
                 onChange={handleChange}
                 autoComplete="off"
@@ -90,7 +90,7 @@ export default function SearchPage({ onResults }) {
                 type="text"
                 inputMode="text"
                 className="story-input"
-                placeholder="anywhere"
+                placeholder="location"
                 value={form.location}
                 onChange={handleChange}
                 autoComplete="off"
@@ -109,7 +109,7 @@ export default function SearchPage({ onResults }) {
 
           {/* Line 3: "named [name]." */}
           <div className="story-line">
-            <span className="story-text">named</span>
+            <span className="story-text">known as</span>
             <div
               className="story-field-wrap"
               onTouchStart={(e) => e.stopPropagation()}
@@ -121,7 +121,7 @@ export default function SearchPage({ onResults }) {
                 type="text"
                 inputMode="text"
                 className="story-input"
-                placeholder="anyone"
+                placeholder="name"
                 value={form.name}
                 onChange={handleChange}
                 autoComplete="off"
@@ -141,7 +141,7 @@ export default function SearchPage({ onResults }) {
         </div>
 
         {/* Hint */}
-        <p className="story-hint">Leave any blank to match all</p>
+        <p className="story-hint">Fill atleast one field</p>
 
         {/* Error */}
         {error && <p className="story-error">{error}</p>}
