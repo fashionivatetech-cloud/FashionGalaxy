@@ -24,7 +24,7 @@ export default function PrefarePage() {
         {/* Body copy */}
         <div className="preface-body">
           <p style={{ fontSize: 14 }}>
-            FASHION GALAXY by FASHIONIVATE is a people-centred, living archive built around the individuals who make fashion what it is. As our first step in empowering this industry, it reclaims identity by moving beyond rigid titles, résumés, and fleeting trends. We believe everyone who shapes fashion is a star—and everyone deserves a place to be seen, heard, understood, and remembered.
+            FASHION GALAXY by FASHIONIVATE is a people-centred, living archive built around the individuals who make fashion what it is. As our first step in empowering this industry, it reclaims identity by moving beyond rigid titles, résumés, and fleeting trends. We believe everyone who shapes fashion is a star and everyone deserves a place to be seen, heard, understood, and remembered.
           </p>
           <p style={{ fontSize: 14 }}>
             <span style={{ textDecoration: "underline" }}>
