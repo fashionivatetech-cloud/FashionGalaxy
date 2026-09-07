@@ -120,7 +120,17 @@ export default function BookFlip() {
   }));
 
   useLayoutEffect(() => {
+    let lastWidth = window.innerWidth;
     const update = () => {
+      // Avoid re-rendering the flipbook when a mobile keyboard opens (height shrinks while width stays same)
+      const isInputActive =
+        document.activeElement &&
+        ['INPUT', 'TEXTAREA', 'SELECT'].includes(document.activeElement.tagName);
+      if (isInputActive && window.innerWidth === lastWidth) {
+        return;
+      }
+
+      lastWidth = window.innerWidth;
       setDims({
         width: Math.min(window.innerWidth, 430),
         height: window.innerHeight - 72,
@@ -149,11 +159,12 @@ export default function BookFlip() {
           showCover={false}
           flippingTime={600}
           useMouseEvents={false}
+          clickEventForward={true}
           usePortrait={true}
           startPage={0}
           drawShadow={true}
           autoSize={false}
-          mobileScrollSupport={false}
+          mobileScrollSupport={true}
           onFlip={handlePageChange}
           className="flip-book"
           style={{ overflow: 'hidden' }}

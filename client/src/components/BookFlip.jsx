@@ -100,14 +100,23 @@ export default function BookFlip() {
   }));
 
   useLayoutEffect(() => {
+    let lastWidth = window.innerWidth;
     const update = () => {
+      // Avoid re-rendering the flipbook when a mobile keyboard opens
+      const isInputActive =
+        document.activeElement &&
+        ['INPUT', 'TEXTAREA', 'SELECT'].includes(document.activeElement.tagName);
+      if (isInputActive && window.innerWidth === lastWidth) {
+        return;
+      }
+
+      lastWidth = window.innerWidth;
       setDims({
         width: Math.min(window.innerWidth, 430),
         height: window.innerHeight - 72,
       });
     };
     window.addEventListener('resize', update);
-    // Also fire once after paint to catch any mobile chrome bar offsets
     update();
     return () => window.removeEventListener('resize', update);
   }, []);
@@ -130,11 +139,12 @@ export default function BookFlip() {
           showCover={false}
           flippingTime={600}
           useMouseEvents={false}   // mobile: we control flip via buttons only
+          clickEventForward={true}
           usePortrait={true}       // single-page view (portrait = one page at a time)
           startPage={0}
           drawShadow={true}
           autoSize={false}
-          mobileScrollSupport={false}
+          mobileScrollSupport={true}
           onFlip={handlePageChange}
           className="flip-book"
           style={{ overflow: 'hidden' }}

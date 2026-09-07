@@ -327,6 +327,8 @@ body,
   display: flex;
   flex-direction: column;
   gap: 0;
+  position: relative;
+  z-index: 10;
 }
 
 /* Each sentence line */
@@ -389,6 +391,9 @@ body,
   min-width: 100px;
   flex: 1;
   max-width: 200px;
+  cursor: text;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: rgba(201, 168, 76, 0.2);
 }
 
 /* Shared input / select style — no border box, just underline */
@@ -403,11 +408,16 @@ body,
   font-size: 1.1rem;
   font-weight: 400;
   font-style: italic;
-  line-height: 1;
-  padding: 0 0 3px 0;
+  line-height: 1.2;
+  padding: 4px 0;
+  min-height: 38px;
   caret-color: var(--gold);
   -webkit-appearance: none;
   appearance: none;
+  -webkit-user-select: text;
+  user-select: text;
+  touch-action: manipulation;
+  pointer-events: auto !important;
 }
 
 .story-input::placeholder {

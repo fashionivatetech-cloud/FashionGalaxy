@@ -52,65 +52,73 @@ export default function SearchPage({ onResults }) {
       <div className="story-eyebrow">Index</div>
 
       {/* Main sentence */}
-      <form className="story-form" onSubmit={handleSubmit} id="search-form">
+      <form
+        className="story-form"
+        onSubmit={handleSubmit}
+        id="search-form"
+        onTouchStart={(e) => e.stopPropagation()}
+        onPointerDown={(e) => e.stopPropagation()}
+      >
         <div className="story-sentence">
 
           {/* Line 1: "Take me to the ★ [dept]" */}
           <div className="story-line">
             <span className="story-text">Take me to the</span>
             <span className="story-star">★</span>
-            <div className="story-field-wrap">
+            <div
+              className="story-field-wrap"
+              onTouchStart={(e) => e.stopPropagation()}
+              onPointerDown={(e) => e.stopPropagation()}
+            >
               <input
                 id="search-department"
                 name="department"
                 type="text"
+                inputMode="text"
                 className="story-input"
                 placeholder="any field"
                 value={form.department}
                 onChange={handleChange}
                 autoComplete="off"
                 ref={deptRef}
+                onTouchStart={(e) => e.stopPropagation()}
+                onTouchEnd={(e) => {
+                  e.stopPropagation();
+                  e.currentTarget.focus();
+                }}
+                onPointerDown={(e) => e.stopPropagation()}
+                onMouseDown={(e) => e.stopPropagation()}
               />
               <span className="story-underline" />
             </div>
           </div>
 
-          {/* Dropdown version — commented out
-          <div className="story-line">
-            <span className="story-text">Take me to the</span>
-            <span className="story-star">★</span>
-            <div className="story-field-wrap">
-              <select
-                id="search-department"
-                name="department"
-                className="story-select"
-                value={form.department}
-                onChange={handleChange}
-              >
-                <option value="">any field</option>
-                {DEPARTMENTS.map((d) => (
-                  <option key={d} value={d}>{d}</option>
-                ))}
-              </select>
-              <span className="story-underline" />
-            </div>
-          </div>
-          */}
-
           {/* Line 2: "from [location]," */}
           <div className="story-line">
             <span className="story-text">from</span>
-            <div className="story-field-wrap">
+            <div
+              className="story-field-wrap"
+              onTouchStart={(e) => e.stopPropagation()}
+              onPointerDown={(e) => e.stopPropagation()}
+            >
               <input
                 id="search-location"
                 name="location"
                 type="text"
+                inputMode="text"
                 className="story-input"
                 placeholder="anywhere"
                 value={form.location}
                 onChange={handleChange}
                 autoComplete="off"
                 ref={locationRef}
+                onTouchStart={(e) => e.stopPropagation()}
+                onTouchEnd={(e) => {
+                  e.stopPropagation();
+                  e.currentTarget.focus();
+                }}
+                onPointerDown={(e) => e.stopPropagation()}
+                onMouseDown={(e) => e.stopPropagation()}
               />
               <span className="story-underline" />
             </div>
@@ -120,17 +128,29 @@ export default function SearchPage({ onResults }) {
           {/* Line 3: "named [name]." */}
           <div className="story-line">
             <span className="story-text">named</span>
-            <div className="story-field-wrap">
+            <div
+              className="story-field-wrap"
+              onTouchStart={(e) => e.stopPropagation()}
+              onPointerDown={(e) => e.stopPropagation()}
+            >
               <input
                 id="search-name"
                 name="name"
                 type="text"
+                inputMode="text"
                 className="story-input"
                 placeholder="anyone"
                 value={form.name}
                 onChange={handleChange}
                 autoComplete="off"
                 ref={nameRef}
+                onTouchStart={(e) => e.stopPropagation()}
+                onTouchEnd={(e) => {
+                  e.stopPropagation();
+                  e.currentTarget.focus();
+                }}
+                onPointerDown={(e) => e.stopPropagation()}
+                onMouseDown={(e) => e.stopPropagation()}
               />
               <span className="story-underline" />
             </div>
