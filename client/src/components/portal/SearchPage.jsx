@@ -141,7 +141,7 @@ export default function SearchPage({ onResults }) {
         </div>
 
         {/* Hint */}
-        <p className="story-hint">Fill atleast one field</p>
+        <p className="story-hint">(Fill atleast one field)</p>
 
         {/* Error */}
         {error && <p className="story-error">{error}</p>}

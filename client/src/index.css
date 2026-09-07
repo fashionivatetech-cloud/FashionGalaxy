@@ -464,11 +464,14 @@ body,
 
 /* Hint text */
 .story-hint {
-  font-size: 0.72rem;
+  font-size: 0.82rem;
   letter-spacing: 0.1em;
   color: var(--white-muted);
   opacity: 0.5;
   margin-bottom: 32px;
+  font-family: var(--font-serif);
+  font-weight: 00;
+  font-style: italic;
 }
 
 /* Error text */
