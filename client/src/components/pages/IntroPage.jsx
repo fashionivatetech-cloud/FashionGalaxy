@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import bgImage from '../../assets/firstPageBackground.jpeg';
 
-const BRAND = 'Fashion Galaxy';
+const BRAND = 'FASHION GALAXY';
 
 export default function IntroPage() {
   const particleRef = useRef(null);

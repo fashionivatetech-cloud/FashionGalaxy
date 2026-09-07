@@ -60,7 +60,7 @@ export default function SearchPage({ onResults }) {
                 type="text"
                 inputMode="text"
                 className="story-input"
-                placeholder="profession/category"
+                placeholder="Profession/Category"
                 value={form.department}
                 onChange={handleChange}
                 autoComplete="off"
@@ -90,7 +90,7 @@ export default function SearchPage({ onResults }) {
                 type="text"
                 inputMode="text"
                 className="story-input"
-                placeholder="location"
+                placeholder="Location"
                 value={form.location}
                 onChange={handleChange}
                 autoComplete="off"
@@ -121,7 +121,7 @@ export default function SearchPage({ onResults }) {
                 type="text"
                 inputMode="text"
                 className="story-input"
-                placeholder="name"
+                placeholder="Name"
                 value={form.name}
                 onChange={handleChange}
                 autoComplete="off"

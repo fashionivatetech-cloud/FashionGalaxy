@@ -140,12 +140,13 @@ body,
 /* Logo / brand name letter animation */
 .intro-brand {
   font-family: var(--font-serif);
-  font-size: 3rem;
+  font-size: clamp(1.9rem, 8vw, 2.8rem);
   font-weight: 700;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.05em;
   line-height: 1.1;
   color: var(--white);
   overflow: hidden;
+  white-space: nowrap;
 }
 
 .intro-brand .letter {
@@ -343,7 +344,7 @@ body,
 
 .story-line {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   flex-wrap: wrap;
   gap: 8px;
 }
@@ -358,7 +359,7 @@ body,
   font-size: 1.15rem;
   font-weight: 300;
   color: var(--white-muted);
-  line-height: 1;
+  line-height: 1.4;
   white-space: nowrap;
 }
 
@@ -410,9 +411,9 @@ body,
   font-size: 1.1rem;
   font-weight: 400;
   font-style: italic;
-  line-height: 1.2;
-  padding: 4px 0;
-  min-height: 38px;
+  line-height: 1.4;
+  padding: 2px 0;
+  min-height: unset;
   caret-color: var(--gold);
   -webkit-appearance: none;
   appearance: none;
@@ -1311,11 +1312,13 @@ body,
 .preface-inner {
   position: relative;
   z-index: 2;
-  padding: 40px 36px;
+  padding: 28px 28px;
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 14px;
   animation: fadeUp 0.6s ease both;
+  overflow-y: auto;
+  max-height: 100%;
 }
 
 /* Eyebrow */
@@ -1331,7 +1334,7 @@ body,
 /* Main heading */
 .preface-heading {
   font-family: var(--font-serif);
-  font-size: 2.4rem;
+  font-size: clamp(1.7rem, 7vw, 2.4rem);
   font-weight: 700;
   line-height: 1.1;
   letter-spacing: 0.04em;
@@ -1354,9 +1357,9 @@ body,
 
 .preface-body p {
   font-family: var(--font-serif);
-  font-size: 0.85rem;
+  font-size: clamp(0.75rem, 3.5vw, 0.85rem);
   font-weight: 300;
-  line-height: 1.6;
+  line-height: 1.55;
   color: rgba(245, 245, 240, 0.78);
 }
 
@@ -2048,8 +2051,8 @@ body,
 
   /* Intro page */
   .intro-brand {
-    font-size: 2.4rem;
-    letter-spacing: 0.04em;
+    font-size: clamp(1.6rem, 7vw, 2.2rem);
+    letter-spacing: 0.03em;
   }
 
   .intro-content {
@@ -2136,8 +2139,8 @@ body,
 
   /* Intro page */
   .intro-brand {
-    font-size: 2rem;
-    letter-spacing: 0.02em;
+    font-size: clamp(1.45rem, 6.5vw, 1.9rem);
+    letter-spacing: 0.01em;
   }
 
   .intro-tagline {
