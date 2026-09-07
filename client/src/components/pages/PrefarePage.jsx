@@ -16,9 +16,7 @@ export default function PrefarePage() {
         <div className="preface-eyebrow">Preface</div>
 
         {/* Main heading */}
-        <h5 className="preface-heading">
-          Fashion Galaxy
-        </h5>
+
 
         {/* Thin gold rule */}
         <div className="preface-rule" />
@@ -33,9 +31,12 @@ export default function PrefarePage() {
 
             -BE SEEN — Represent yourself as you wish to be seen, rather than being defined by what happens to perform, trend, or attract attention.
             <br></br>
+            <br></br>
             -BE UNDERSTOOD — Let your story and course of life provide the context that a profile, résumé, or portfolio alone cannot.
             <br></br>
+            <br></br>
             -BE REMEMBERED — Give your work, contributions, and course of life a lasting place in the memory of fashion, beyond a passing moment of visibility.
+            <br></br>
             <br></br>
             -BE CONNECTED — Discover and connect with people across fashion naturally, whether it leads to friendship, collaboration, mentorship, opportunity, employment, or something entirely unexpected.
           </p>

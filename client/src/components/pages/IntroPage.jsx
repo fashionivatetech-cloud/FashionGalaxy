@@ -64,11 +64,7 @@ export default function IntroPage() {
         <div className="intro-tagline">Curriculum vitae : The course of life of people in fashion.</div>
       </div>
 
-      {/* Flip hint */}
-      <div className="intro-flip-hint">
-        <span>Explore</span>
-        <div className="arrow">↓</div>
-      </div>
+
     </div>
   );
 }
