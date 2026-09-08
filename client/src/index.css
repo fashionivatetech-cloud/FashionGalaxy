@@ -1427,6 +1427,15 @@ body,
   color: rgba(245, 245, 240, 0.78);
 }
 
+/* Underlined keywords inside preface body — offset so line doesn't sit on letters */
+.preface-underline {
+  color: var(--gold);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1px;
+  text-decoration-color: rgba(201, 168, 76, 0.6);
+}
+
 /* Attribution row */
 .preface-attribution {
   display: flex;

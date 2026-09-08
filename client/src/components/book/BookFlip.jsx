@@ -32,22 +32,21 @@ function NoResultsPage({ onGoBack }) {
 
         {/* Heading — editorial language */}
         <div className="no-results-heading">
-          <h2>This Star Has Not Yet<br />Entered The Archive.</h2>
+          <h2>The Star You Are Looking For<br />was not found in Galaxy.</h2>
           <div className="no-results-divider" />
         </div>
 
         {/* Message */}
         <p className="no-results-msg">
-          Try a different name, city, or field.<br />
-          Or leave all blank to browse the full archive.
+          Please try again with correct Name,Location,Profession/Category
         </p>
 
         {/* Tips */}
-        <ul className="no-results-tips">
+        {/* <ul className="no-results-tips">
           <li>✦ Search by first name only</li>
           <li>✦ Try a broader city (e.g. &ldquo;Mumbai&rdquo;)</li>
           <li>✦ Leave all fields empty to browse all</li>
-        </ul>
+        </ul> */}
 
         {/* CTA — editorial language */}
         <button className="back-btn" id="go-back-btn" onClick={onGoBack}>

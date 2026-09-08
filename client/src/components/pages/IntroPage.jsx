@@ -62,6 +62,7 @@ export default function IntroPage() {
 
         {/* Tagline */}
         <div className="intro-tagline">Curriculum vitae : The course of life of people in fashion.</div>
+        <div className="intro-tagline">By Fashionivate</div>
       </div>
 
 
