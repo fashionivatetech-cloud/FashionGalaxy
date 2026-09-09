@@ -18,26 +18,28 @@ router.get('/', async (req, res) => {
 router.get('/search', async (req, res) => {
   try {
     const { name, location, department } = req.query;
-    let query = {};
+    let conditions = [];
 
     if (name && name.trim()) {
-      query.name = { $regex: `^${name.trim()}$`, $options: 'i' };
+      conditions.push({ name: { $regex: name.trim(), $options: 'i' } });
     }
 
     if (location && location.trim()) {
-      query.location = { $regex: location.trim(), $options: 'i' };
+      conditions.push({ location: { $regex: location.trim(), $options: 'i' } });
     }
 
     if (department && department.trim()) {
-      query.department = { $regex: department.trim(), $options: 'i' };
+      conditions.push({ department: { $regex: department.trim(), $options: 'i' } });
     }
 
+    const query = conditions.length > 0 ? { $and: conditions } : {};
     const results = await Profile.find(query);
     res.json(results);
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
 });
+
 
 
 // GET /api/profiles/:id — single profile (must be after /search)
