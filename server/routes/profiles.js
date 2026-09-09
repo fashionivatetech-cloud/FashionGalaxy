@@ -18,63 +18,27 @@ router.get('/', async (req, res) => {
 router.get('/search', async (req, res) => {
   try {
     const { name, location, department } = req.query;
+    let query = {};
 
-    // Build OR conditions only for non-empty query params
-    const orConditions = [];
     if (name && name.trim()) {
-      orConditions.push({ name: { $regex: name.trim(), $options: 'i' } });
-      orConditions.push({ tags: { $regex: name.trim(), $options: 'i' } });
+      query.name = { $regex: `^${name.trim()}$`, $options: 'i' };
     }
+
     if (location && location.trim()) {
-      orConditions.push({ location: { $regex: location.trim(), $options: 'i' } });
+      query.location = { $regex: location.trim(), $options: 'i' };
     }
+
     if (department && department.trim()) {
-      orConditions.push({ department: { $regex: department.trim(), $options: 'i' } });
+      query.department = { $regex: department.trim(), $options: 'i' };
     }
 
-    // If no params provided, return all profiles
-    if (orConditions.length === 0) {
-      const all = await Profile.find().sort({ createdAt: -1 });
-      return res.json(all);
-    }
-
-    // Use aggregation to score matches (more matching fields = higher score)
-    const scoringConditions = [];
-    if (name && name.trim()) {
-      scoringConditions.push({
-        $cond: [{ $regexMatch: { input: '$name', regex: name.trim(), options: 'i' } }, 2, 0]
-      });
-      scoringConditions.push({
-        $cond: [{ $gt: [{ $size: { $filter: { input: { $ifNull: ['$tags', []] }, as: 't', cond: { $regexMatch: { input: '$$t', regex: name.trim(), options: 'i' } } } } }, 0] }, 1, 0]
-      });
-    }
-    if (location && location.trim()) {
-      scoringConditions.push({
-        $cond: [{ $regexMatch: { input: { $ifNull: ['$location', ''] }, regex: location.trim(), options: 'i' } }, 2, 0]
-      });
-    }
-    if (department && department.trim()) {
-      scoringConditions.push({
-        $cond: [{ $regexMatch: { input: { $ifNull: ['$department', ''] }, regex: department.trim(), options: 'i' } }, 2, 0]
-      });
-    }
-
-    const results = await Profile.aggregate([
-      { $match: { $or: orConditions } },
-      {
-        $addFields: {
-          score: { $add: scoringConditions }
-        }
-      },
-      { $sort: { score: -1, createdAt: -1 } },
-      { $project: { score: 0 } } // remove internal score field from response
-    ]);
-
+    const results = await Profile.find(query);
     res.json(results);
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
 });
+
 
 // GET /api/profiles/:id — single profile (must be after /search)
 router.get('/:id', async (req, res) => {
